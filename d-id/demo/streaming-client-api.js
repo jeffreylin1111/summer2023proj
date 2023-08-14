@@ -62,6 +62,7 @@ talkButton.onclick = async () => {
   // Get the user input from the text input field
     if (peerConnection?.signalingState === 'stable' || peerConnection?.iceConnectionState === 'connected') {
       const userInput = document.getElementById('user-input-field').value; // Get the user's input from the input field
+      
   
       const talkResponse = await fetch(`${DID_API.url}/talks/streams/${streamId}`, {
         method: 'POST',
@@ -72,7 +73,8 @@ talkButton.onclick = async () => {
             subtitles: 'false',
             provider: { type: 'microsoft', voice_id: 'en-US-AriaNeural', style: 'Newscast-casual' },
             ssml: true,
-            input: userInput // Use the user input as the input value
+            input: userInput // Use the user input as the input value            
+
           },
           config: {
             fluent: true,
